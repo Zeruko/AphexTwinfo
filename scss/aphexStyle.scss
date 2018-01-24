@@ -1,0 +1,1376 @@
+/*Mixins*/
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin albumDropdown{
+        top: 50px;
+        left: 20px;
+        transition: all 1s;
+        max-height: 0;
+        display: block;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0;
+        position: static;
+        padding-left: 0;
+}
+
+/*Variables*/
+$font: 'VT323', monospace;
+
+html{
+    font-family: $font;
+    background-color: black;
+}
+
+body{
+        background-color: #e6e6e6;;
+}
+
+/*====Navbar===========================================*/
+.navbar{
+    height: 13vh;
+    background-color: black;
+    margin-bottom: 0;
+        .navbar-brand{
+            height: 13vh;
+            object-fit: contain;
+                img{
+                    height: 100%;
+                    margin: 0 25px;
+                }
+        } 
+        ul{
+            z-index: 10;
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            :first-child{
+                margin-left: 35px;
+            }
+            :nth-child(2){
+                margin-right: 10px;
+            }
+            .albums :first-child{
+                margin-left: 0;
+            }
+
+                li{
+                    position: relative;
+                    font-family: $font;
+                    margin-right: 50px;
+                    z-index: 10;
+                       a{
+                            font-size: 32px;
+                            margin: auto;
+                            
+                        }
+                }
+
+    
+        }
+    .albums{
+        top: 50px;
+        left: 20px;
+        transition: all 0.5s;
+        max-height: 0;
+        display: block;
+        overflow: hidden;
+        opacity: 0;
+        li{
+            width: 100%;
+            a{
+                text-shadow: 2px 2px white;
+                transition: 1s;
+            }
+        }
+    }
+    .dropdown:hover .dropdown-menu{
+            max-height: 300px;
+            opacity: 1;
+        }
+
+    
+    .buttonContainer{
+        display: none;
+        cursor: pointer;
+        float: right;
+    
+        .buttonBurger{
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin:6px 0;
+        }    
+    }
+    
+        
+}
+/*===OpacityContainerDiv====================================*/
+.opacityContainerDiv{
+    
+    transition: opacity 0.5s ease-in-out;
+    background-color: black;
+}
+
+/*====bannerImage===========================================*/
+.bannerImage{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url(../images/RichardDJames.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 0;
+    height: 80vh;
+    position: relative;
+    z-index: 1;
+
+    .blurb{
+        display: inline-block;
+        width: 30%;
+        position: absolute;
+        top: 10%;
+        left: 5%;
+
+        h2{
+            font-family: $font;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+            
+        }
+        p{
+            font-family: 'VT323', monospace;
+            color: white;
+            text-shadow: 2px 2px 4px black;
+            font-size: 16px;
+        }
+    }
+}
+
+/*=====Footer================*/
+.footer{
+    .row{
+        background-color: black;
+        footer{
+            height: 10vh;
+            background-color: black;
+            padding-left: 20px
+        }
+    }
+}
+
+/*================SideNav========================*/
+#sideNav{
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 15%;
+    transition: 0.5s;
+        .navbar-brand{
+            float: none;
+            object-fit: contain;
+            position: absolute;
+            top: 0%;
+            height: 13%;
+                img{
+                    height: 100%;
+                    margin: 0 25px;
+                }       
+        }
+        
+    ul{
+        margin-top: 10%;
+        padding-left: 20px;
+            li{
+                list-style-type: none;
+                float: left;
+                width: 100%;
+            }
+            a{
+                padding: 8px 8px 8px 16px;
+                text-decoration: none;
+                font-size: 25px;
+                font-family: $font;
+                display: block;
+                transition: 1s;
+                color: white;
+            }
+
+        
+            .albums{
+                @include albumDropdown;
+                    li{
+                        a{
+                            color: black; 
+                            text-shadow: 2px 2px white;
+                        }
+
+                    }
+            }
+    .dropdown:hover .dropdown-menu{
+            max-height: 200px;
+            opacity: 1;
+        }
+        
+    }
+}
+
+/*============================================================aphexTwinfoAlbums==============================================================*/
+/*button1==================================*/
+.buttonContainer{
+        display: none;
+        cursor: pointer;
+        float: right;
+    
+        .buttonBurger{
+            width: 35px;
+            height: 5px;
+            background-color: white;
+            margin:6px 0;
+        }    
+}
+
+/*Banner====================================*/
+.bannerImageAlbums{
+    background-image: url(../images/albumsBanner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    .albumsNavContainer{
+        height: 100vh;
+        position: relative;
+        .albumsNav{
+            list-style-type: none;
+            position: absolute;
+            top: 75%;
+            left: -8%;
+            height: 15%;
+            width: 90%;
+            li{
+                float: left;
+                font-family: $font;
+                margin-left: 10%;
+                font-size: 32px;
+                position: relative;
+                top: 35%;
+                z-index: 10;
+                a{
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+            .albums{
+                top: 50px;
+                transition: all 0.5s;
+                max-height: 0;
+                display: block;
+                overflow: hidden;
+                opacity: 0;
+                margin-top: 0;
+                position: absolute;
+                    li{
+                        width: 100%;
+                        margin: 0;
+                        a{
+                            color: black;
+                            transition: 1s;
+                        }
+
+                    }
+                #myPlaylistLinkClear{
+                    clear: left;
+                }
+            }
+        .dropdown:hover .dropdown-menu{
+            max-height: 200px;
+            opacity: 1;
+        }
+        
+    } 
+        #listOpacityDiv{
+            height: 15vh;
+            width: 90vw;
+            background-color: black;
+            position: relative;
+            top: 75%;
+            opacity: 0.4;
+        }
+    
+    }
+        
+    
+}
+
+/*Album1================================*/
+#selectedAmbientWorks85-92{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url("../images/selectedAmbientWorksBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+#selectedAmbientWorks85-92Style{
+    background-image: url("../images/selectedAmbientWorksBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+.Album{
+   
+    .h2OpacityDiv{
+        height: 5vh;
+        margin: 1% 0 1% 0;
+        z-index: 1;
+        position: relative;
+    }
+    h2{
+        position: absolute;
+        font-family: $font;
+        color: white;
+        text-shadow: 2px 2px black;
+        z-index: 9;
+        margin: 0;
+    }
+    #pOpacityDiv{
+        height: 45vh;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        
+    }
+    p{
+        position: absolute;
+        font-family: $font;
+        color: white;
+        text-shadow: 2px 2px black;
+        z-index: 10;
+        font-size: 18px;
+        margin: 20px;
+    }
+}
+
+#selectedAmbientWorksVolumeII{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url("../images/Aphex-Twin-Selected-Ambient-Works-Volume-II.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#selectedAmbientWorksVolumeIIStyle{
+    background-image: url("../images/Aphex-Twin-Selected-Ambient-Works-Volume-II.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#drucqs{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url("../images/drukqsBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#drukqsStyle{
+    background-image: url("../images/drukqsBackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#myPlaylist{
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url("../images/aphexTestLogos.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#myPlaylistStyle{
+    background-image: url("../images/aphexTestLogos.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.albumiFrame{
+    height: 45vh;
+    width: 100%;
+}
+
+/*============================================================aphexTwinfoBio==============================================================*/
+html{
+    background-color: #dbd6d8;
+}
+
+/*====Navbar========*/
+.navbarBio{   
+    padding: 0;
+    position: absolute;
+    top: -6vh;
+    z-index: 10;
+    transition: 0.5s;
+    width: 100%;
+    .navbarBioRow{
+        height: 7vh;
+        .navbarWarpLogo{
+            display: inline-block;
+            padding: 0;
+            height: 100%;
+            width: 50%;
+            float: left;
+            background-color: #8f1fff;
+                img{
+                    object-fit: contain;
+                    height: 100%;
+                }
+        }
+        .bioNavLinks{
+            padding: 0;
+            height: 100%;
+            width: 50%;
+            background-color: white;
+            float: left;
+            ul{
+                height: 100%;
+                list-style-type: none;
+                display: flex;
+                align-items: center;
+                li{
+                    float: left;
+                    padding: 2%;
+                    a{
+                        font-weight: bold;
+                        font-size: 18px;
+                    }
+                }
+            }
+            #menu{
+                display: none;
+            }
+        }
+
+    }
+    #blackLine{
+        background-color: black;
+        height: 1.5vh;   
+    } 
+
+}
+
+/*==========Mobile Navbar================*/
+.mobileNavbar{
+    display: none;
+    position: fixed;
+    top: 8vh;
+    margin-left: 1.5%;
+    width: 100%;
+    z-index: 10;
+    .mobileNavbarContent{
+        padding: 0;
+        #topNavbarLinks{
+            background-color: white;
+            ul{
+                padding: 0;
+                margin-bottom: 0;
+                li{
+                    list-style-type: none;
+                    border-top: 0.2px solid grey;
+                    border-bottom: 0.2px solid grey;
+                    padding: 1.75% 0 1.75% 0;
+                    a{
+                        color: black;
+                        font-family: Helvetica, Arial, sans-serif;
+                        font-size: 16px;
+                        font-weight: bold;
+                        padding-left: 2.5%;
+                    }
+                }
+            }
+        }
+        #bottomNavbarLinks{
+            background-color: black;
+            ul{
+                padding: 0;
+                z-index: 125;
+                li{
+                    list-style-type: none;
+                    border-top: 0.2px solid grey;
+                    padding: 1.75% 0 1.75% 0;
+                    z-index: 20;
+                    a{
+                        color: white;
+                        font-family: Helvetica, Arial, sans-serif;
+                        font-size: 16px;
+                        font-weight: bold;
+                        padding-left: 2.5%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==========Banner=======================*/
+.bannerImageBio{
+    height: 110vh;
+    background-image: url(../images/bioBannerFinished.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    top: -11vh;
+}
+
+
+
+/*================Biography=================*/
+.biography{
+    background-color: #e6e6e6;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 24px;
+    .biographyRow{
+        display: flex;
+        .biographyBio{
+            background-color: white;
+            margin: 0.5%;
+            #bioGlyph{
+                padding-top: 5vh;
+                .glyphicon-asterisk{
+                font-size: 200%;
+                display: block;
+                text-align: center;
+                }
+            }
+            #biographyP{
+                display: block;
+                text-align: center;
+                margin-bottom: 5%;
+                p{
+                    font-size: 42px;
+                }
+            }  
+        }
+        .biographyAphexTwin{
+            background-color: white;
+            padding: 0;
+            margin: 0.5%;
+            align-self: flex-end;
+            .biographyAphexTwinPic{
+                height: 24vh;
+                background-image: url(../images/bioBanner.jpg);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+            }
+            .biographyAphexTwinH3{
+                background-color: white;
+                padding-left: 1%;
+                height: 8vh;
+                display: flex;
+            }
+
+        }
+    }
+}
+
+/*============TwitterFacebook============*/
+.twitterFacebook{
+    background-color: #e6e6e6;
+    .twitterFacebookRow{
+        background-color: white;
+        padding: 0;
+        .extraHeight{
+            height: 4vh;
+        }
+        div{
+            padding: 3vh 0 3vh 0;
+            display: flex;
+            span{
+                padding-left: 4%;
+                p{
+                    display: inline-block;
+                    font-size: 32px;
+                    font-family: Helvetica, Arial, Sans-Serif;
+                    padding-left: 8%;
+                }
+            } 
+            .glyphicon{
+                font-size: 26px;
+            }
+        }
+    
+    }
+}
+
+/*============SyroVideo==================*/
+.syroVideo{
+    background-color: #e6e6e6;
+    margin: 1%;
+    .syroVideoRow{
+        background-color: white;
+        padding: 0;
+        div{
+            
+            h3{
+                display: inline-block;
+            }
+        }
+    }
+}
+
+/*==========MultipleBoxes==============*/
+.multipleBoxes{
+    .multipleBoxesRow{
+        display: flex;
+        flex-wrap: wrap;
+        #multipleBoxesInterview{
+            flex-basis: 22.5%;
+            background-color: white;
+            height: 48vh;
+            margin: 0% 0.5% 0% 0.5%;
+            #multipleBoxesInterviewPic{
+                height: 25vh;
+                background-image: url(../images/interviewPic.jpg);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+            }
+            #multipleBoxesInterviewText{
+                height: 19vh;
+                p{
+                    padding-top: 5%;
+                }
+            }
+            p{
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 19px;
+                font-weight: bold;
+                margin: 0;
+                height: 4vh;
+            }
+        }
+        #multipleBoxesHeadliner{
+            display: flex;
+            height: 35vh;
+            background-color: white;
+            align-self: flex-end;
+            flex-basis: 24%;
+            position: relative;
+            #multipleBoxesHeadlinerText{
+                height: 30vh;
+                width: 100%;
+                p{
+                    padding-top: 5%;
+                }
+            }
+            #date{
+                width: 100%;
+                height: 20%;
+                align-self: flex-end;
+                position: absolute;
+                
+            }
+            p{  
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 21px;
+                font-weight: bold;
+                padding-top: 9%;
+            }
+        }
+       #multipleBoxesHeadlinerPic{
+        height: 35vh;
+        flex-basis: 24%;
+        align-self: flex-end;
+        margin-right: 1%;
+        background-image: url(../images/headlinerPic.jpg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        }
+        #multipleBoxesStockists{
+            display: flex;
+            flex-basis: 22.5%;
+            height: 48vh;
+            background-color: white;
+            margin-left: 1%;
+            flex-wrap: wrap;
+            #multipleBoxesStockistsPic{
+                height: 25vh;
+                flex-basis: 100%;
+                background-image: url(../images/stockistsPic.jpg);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+            }
+            #multipleBoxesStockistsText{
+                height: 19vh;
+                flex-basis: 100%;
+                p{
+                    padding-top: 5%;
+                }
+            }
+            p{ 
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 21px;
+                font-weight: bold;
+                width: 100%;
+                height: 4vh;
+            }
+        }
+        #multipleBoxesCheetah{
+            display: flex;
+            flex-basis: 25%;
+            background-color: white;
+            height: 48vh;
+            margin: 1% 0 0 23.5%;
+            flex-wrap: wrap;
+            position: relative;
+            #multipleBoxesCheetahPic{
+                width: 100%;
+                height: 25vh;
+                background-image:url(../images/cheetahPic.jpg);
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #multipleBoxesCheetahText{
+                height: 19vh; 
+                width: 100%;
+                padding-top: 5%;
+            }
+            p{
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 21px;
+                font-weight: bold;
+                width: 100%;
+                height: 4vh;
+            }
+        }
+        #multipleBoxesBleep{
+            height: 48vh;
+            background-color: white;
+            display: flex;
+            flex-basis: 25%;
+            flex-wrap: wrap;
+            margin: 1% 0 0 1%;
+            #multipleBoxesBleepPic{
+                height: 25vh;
+                width: 100%;
+                background-image: url(../images/bleepPic.jpg);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: cover;
+            }
+            #multipleBoxesBleepText{
+                height: 19vh;
+                padding-top: 5%;
+            }
+            p{
+                font-family: Helvetica, Arial, sans-serif;
+                font-size: 21px;
+                font-weight: bold;
+                width: 100%;
+                height: 4vh;
+            }
+        }
+    }
+ 
+}
+/*==============Artist News=============*/
+.allArtistNews{
+    margin: 0.5% 0.5% 0;
+    .news{
+        background-color: white;
+        height: 10vh;
+        padding: 0;
+        div{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            p{
+                margin: auto;
+                font-size: 22px
+            }
+        }
+    }
+}
+/*============MultipleBoxes2===============*/
+.multipleBoxes2{
+
+    .multipleBoxes2Content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        .multipleBoxes2Div{
+            height: 48vh;
+            background-color: white;
+            flex-basis: 23%;
+            margin: 0.5% 0% 0% 0.5%;;
+            position: relative;
+            .multipleBoxes2Pic{
+                height: 80%;
+            }
+            .multipleBoxes2Text{
+                position: absolute;
+                height: 20%;
+                width: 100%;
+                overflow: hidden;
+                p{
+                    font-family: Helvetica, Arial, sans-serif;
+                    font-size: 19px;
+                    font-weight: bold;
+                    width: 100%;
+                    height: 4vh;
+                }
+            }
+           #cheetah2Pic{
+            background-image: url(../images/cheetahPic2.jpg);
+            background-repeat: none;
+            background-position: center center;
+            background-size: cover;
+            }
+            #twoBPic{
+            background-image: url(../images/Machromt30a.jpg);
+            background-repeat: none;
+            background-position: center center;
+            background-size: cover;
+            }
+            #acousticPic{
+            background-image: url(../images/acoustic.jpg);
+            background-repeat: none;
+            background-position: center center;
+            background-size: cover;
+            }
+            #syroPic{
+            background-image: url(../images/syro.jpg);
+            background-repeat: none;
+            background-position: center center;
+            background-size: cover;
+            }
+        }
+    }
+}
+
+/*======twoBands=============*/
+.twoBands{
+    margin: 3% 0% 0.5% 0%;
+    .twoBandsContent{
+        background-color: white;
+        height: 13vh;
+        display: flex;
+        #antiPop{
+            float: left;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            p{
+                margin: auto 0;
+            }
+        }
+        #autechre{
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+            p{
+                margin: auto 0;
+            }
+        }
+        p{
+            font-size: 38px;
+        }
+    }
+}
+
+/*==============Navbar Footer==================*/
+.navbarFooter{
+    padding: 0;
+    .navbarFooterContent{
+        #footerNavLinks{
+            background-color: black;
+            display: flex;
+            width: 50%;
+            float: left;
+            height: 10vh;
+            ul{
+                margin: auto;
+                list-style-type: none;
+                display: flex;
+                position: relative;
+                left: -10%;
+            }
+            li{ 
+                float: left;
+                font-size: 16px;
+                font-weight: bold;
+                margin-right: 3%;
+                white-space: nowrap;
+                a{
+                    color: white;
+                }
+            }
+        }
+        #warpNewsletter{
+            background-color: #8f1fff;
+            width: 50%;
+            float: right;
+            height: 10vh;
+            display: flex;
+            p{
+                margin: auto;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.container-fluid{
+    padding: 0;
+}
+
+/*==========================================================Media Queries============================================================*/
+@media screen and (min-width: 2000px)and (min-height: 1200px){
+    .bannerImage{
+        .blurb{
+            h2{
+                font-size: 62px;
+            }
+            p{
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 1700px) and (min-height: 1000px){
+    .bannerImage{
+        .blurb{
+            h2{
+                font-size: 42px;
+            }
+            p{
+                font-size: 22px;
+            }
+        }   
+    }
+    
+}
+
+@media screen and (min-width: 1400px){
+    .Album{
+        h2{
+            top: 4%;
+        }
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .multipleBoxes{
+        .multipleBoxesRow{
+            #multipleBoxesInterview{
+                flex-basis: 25%;
+            }
+            #multipleBoxesHeadliner{
+                flex-basis: 36%;
+            }
+            #multipleBoxesHeadlinerPic{
+                flex-basis: 36%;
+            }
+            #multipleBoxesStockists{
+                flex-basis: 32%;
+                margin-top: 1%;
+            }
+            #multipleBoxesCheetah{
+                flex-basis: 32%;
+                margin-left: 1%;
+            }
+            #multipleBoxesBleep{
+                flex-basis: 32%;
+            }
+        }
+    }
+    
+    .multipleBoxes2{
+        .multipleBoxes2Content{
+            .multipleBoxes2Div{
+                flex-basis: 31%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .Album{
+        h2{
+            top: 4%;
+        }
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .nav{
+        display: none;
+    }
+    .navbar{ 
+        .buttonContainer{
+                display: inline-block;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+            .buttonBurger{
+                position: relative;
+                z-index: 30;
+            } 
+        }
+    } 
+    .bannerImage{
+        .blurb{
+            width: 45%;
+            h2{
+                font-size: 22px;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+    }
+    .Album{
+        h2{
+            top: 1.5%;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 992px){
+    .Album{
+        h2{
+            top: 0%;
+        }
+    }
+    .biography{
+        .biographyRow{
+            display: inline;
+        }
+    }
+    
+    .multipleBoxes2{
+        .multipleBoxes2Content{
+            .multipleBoxes2Div{
+                flex-basis: 35%;
+            }
+    }
+}
+}
+
+@media screen and (max-width: 980px){
+    .multipleBoxes{
+        .multipleBoxesRow{
+            #multipleBoxesHeadliner{
+                flex-basis: 35%;
+                margin-left: 12vw;
+            }
+            #multipleBoxesHeadlinerPic{
+                flex-basis: 35%;
+                margin-right: 12vw;
+            }
+            #multipleBoxesStockists{
+                flex-basis: 35%;
+                margin-left: 15vw;
+            }
+            #multipleBoxesCheetah{
+                flex-basis: 35%;
+            }
+            #multipleBoxesBleep{
+                flex-basis: 35%;
+                margin: auto;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 975px){
+    .multipleBoxes{
+        .multipleBoxesRow{
+            #multipleBoxesInterview{
+                flex-basis: 35%;
+                margin: 0% 32% 1% 32%;
+                align-self: flex-start;
+            }
+            #multipleBoxesHeadliner{
+                flex-basis: 35%;
+                margin-left: 15vw;
+            }
+            #multipleBoxesHeadlinerPic{
+                flex-basis: 35%;
+                margin-right: 13vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px){
+    .navbarBio{
+        .navbarBioRow{
+            .bioNavLinks{
+                display: flex;
+                ul{
+                    display: none;    
+                }
+                #menu{
+                    display: inline-block;
+                    margin: auto;
+                    p{
+                        font-family: Helvetica, Arial, sans-serif;
+                        font-size: 19px;
+                        font-weight: bold;
+                        float: left;
+                    }
+                    #buttonContainerBio{
+                        float: left;
+                        .buttonBurgerBio{
+                            width: 25px;
+                            height: 1px;
+                            background-color: black;
+                            margin:6px 0;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    .navbarFooter{
+        .navbarFooterContent{
+            #footerNavLinks{
+                display: none;
+            }
+            #warpNewsletter{
+                width: 100%;
+            }
+        }
+    }
+    
+}
+
+@media screen and (max-width: 840px){
+    .sideNavWidth{
+        width: 35% !important;
+    }
+    .bannerImage{
+        .blurb{
+            width: 45%;
+            h2{
+                font-size: 22px;
+            }
+            p{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px){
+        .multipleBoxes{
+            .multipleBoxesRow{
+                #multipleBoxesInterview{
+                    flex-basis: 60%;
+                    margin: 1% 18% 1% 18%;
+                }
+                #multipleBoxesHeadliner{
+                    flex-basis: 44%;
+                    margin-left: 5vw;
+                }
+                #multipleBoxesHeadlinerPic{
+                    flex-basis: 46%;
+                    margin-right: 4vw;
+                }
+                #multipleBoxesStockists{
+                    flex-basis: 44%;
+                    margin-left: 5vw;
+                }
+                #multipleBoxesCheetah{
+                    flex-basis: 45%;
+                    margin-right: 4vw;
+                }
+                #multipleBoxesBleep{
+                    flex-basis: 60%;
+                    margin: 1% 18% 1% 18%;   
+                }
+            }
+        }
+        .multipleBoxes2{
+            .multipleBoxes2Content{
+                .multipleBoxes2Div{
+                    flex-basis: 45%;
+                }
+            }
+        }
+}
+
+@media screen and (max-width: 655px){
+    .multipleBoxes{
+        .multipleBoxesRow{
+            #multipleBoxesInterview{
+                flex-basis: 75%;
+                margin: 0% 12% 0% 12%;
+            }
+            
+            #multipleBoxesStockists{
+                flex-basis: 75%;
+                margin: 0% 12% 0% 12%;
+            }
+            #multipleBoxesCheetah{
+                flex-basis: 75%;
+                margin: 0% 12% 0% 12%;
+            }
+            #multipleBoxesBleep{
+                flex-basis: 75%;
+                margin: 0% 12% 0% 12%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px){
+    .buttonContainer{
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        z-index: 30;
+        .buttonBurger{
+            position: relative;
+
+        }  
+    }
+    
+    .albumsNav{
+        display: none;
+    }
+    
+    #listOpacityDiv{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .Album{
+        h2{
+            font-size: 1.5em;
+            top: 0.5%;
+
+        }  
+        p{
+            font-size: 14px;
+            
+        }
+    }
+}
+
+@media screen and (max-width: 501px){
+    #sideNav{
+        ul{
+            margin-top: 70%;
+            padding: 0;
+            a{
+                
+            }
+        }
+    }
+    
+    .bannerImage{
+        .blurb{
+            width: 50%;
+            right: 100px;
+            h2{
+                font-size: 18px;
+            }
+            p{
+                font-size: 10px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 480px){
+    .multipleBoxes{
+        .multipleBoxesRow{
+            #multipleBoxesHeadliner{
+                flex-basis: 75%;
+                margin: 0% 12% 1% 12%;
+            }
+            #multipleBoxesHeadlinerPic{
+                flex-basis: 75%;
+                margin: 1% 12% 0% 12%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 430px){
+    .Album{
+        h2{
+            font-size: 1.25em;
+            top: 1%;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+}
+
+@media screen and (max-width: 375px){
+    .Album{
+        h2{
+            font-size: 1em;
+            top: 1.5%;
+        }
+    }
+}
+
+/*====jQuery Classes===========================================*/
+.active{
+    color: white;
+}
+
+.sideNavWidth{
+    width: 60vw !important;
+}
+
+.opacityForContainerDiv{
+    opacity: 0.5 !important;
+}
+
+.purpleBackgroundClass{
+    background-color: #8f1fff;
+}
+
+.whiteWritingClass{
+    color: white;
+}
+
+.mobileMenuDisplayClass{
+    top: 0;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    transition: 0.5s;
+
+}
+
