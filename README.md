@@ -3,7 +3,7 @@ Aphex Twin Fansite
 
 This site was made to add to my portfolio and get used to using SASS.
 
-Got more jQuery practise in here.
+Got more jQuery practice in here.
 
 
 The page AphexTwinfoBio is a recreation of this page: https://warp.net/artists/aphex-twin/
